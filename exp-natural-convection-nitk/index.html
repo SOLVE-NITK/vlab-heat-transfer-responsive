@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SOLVE</title>
+    <title>SOLVE - heat transfer - Heat transfer by Natural Convection</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -51,7 +51,7 @@
             ><img src="images/logo_nitk.png" alt="Logo" class="logo"
           /></a>
         </div>
-        <h1>Thermal Conductivity of Metal Rod</h1>
+        <h1>Heat transfer by Natural Convection</h1>
       </div>
     </div>
     <div class="container">
@@ -96,51 +96,54 @@
               <div class="task-screen objective">
                 <h3 class="objective__title">Objective</h3>
                 <p class="objective__main">
-                  To determine the coefficient of thermal conductivity of the
-                  metal rod and to measure the temperature gradient along the
-                  length of the metal rod.
+                  To calculate heat transfer coefficient and heat transfer rate from vertical cylinder in natural convection.
                 </p>
               </div>
               <div class="task-screen description hide">
                 <h3 class="description__title">Description</h3>
                 <div class="description-conatiner">
-                  <img src="./images/model.png" alt="apparatus" class="model" />
+                  <img src="./images/newmodel.png" alt="apparatus" class="model" />
                   <div class="model-detail">
-                    <p>Diameter, d = 20mm</p>
-                    <p>Length Interval = 70mm</p>
-                    <p>C<sub>p</sub> = 4.18kJ/kg-K</p>
-                    <p>Length of shaded area = 300mm</p>
+                    <p>Diameter, d = 44mm</p>
+                    <p>Length t = 500mm</p>
+                    <!-- <p>C<sub>p</sub> = 4.18kJ/kg-K</p>
+                    <p>Length of shaded area = 300mm</p> -->
                   </div>
                 </div>
               </div>
               <div class="task-screen explore hide">
                 <div class="explore-controls">
                   <div class="voltage-set">
-                    <p>Set voltage</p>
-                    <button class="btn btn-start" disabled>Start</button>
-                    <button class="btn btn-reset" disabled>Reset</button>
+                    <p>Voltage</p>
+                    <button class="btn btn-start" disabled>On</button>
+                    <button class="btn btn-reset" >Reset</button>
                   </div>
                   <div class="input-group">
-                    <input
+                    <!-- <input
                       type="radio"
                       name="voltage"
                       id="v10"
                       value="10"
                       class="voltage"
-                    />
-                    <label for="v10" class="voltage_label">10V</label>
+                    /> -->
+                    <!-- <label for="v10" class="voltage_label"></label> -->
                   </div>
+                  <!-- <div class="trigger-slider div-white">
+                    <p class="trigger-status status-off">OFF</p>
+                    <div class="trigger-btn">
+                    </div>
+                  </div> -->
                   <div class="input-group">
                     <input
                       type="radio"
                       name="voltage"
-                      id="v20"
-                      value="20"
+                      id="v10.81"
+                      value="10.81"
                       class="voltage"
                     />
-                    <label for="v20" class="voltage_label">20V</label>
+                    <label for="v10.81" class="voltage_label">10.81</label>
                   </div>
-                  <div class="input-group">
+                  <!-- <div class="input-group">
                     <input
                       type="radio"
                       name="voltage"
@@ -149,31 +152,39 @@
                       class="voltage"
                     />
                     <label for="v30"  class="voltage_label">30V</label>
-                  </div>
+                  </div> -->
                   <div class="temperature-set">
                     <div class="temperature-group">
-                      <span class="temp-text">Vf(cc/min)</span>
-                      <span class="temp-val" id="vfspinner">10</span>
-                    </div>
-                    <div class="temperature-group">
-                      <span class="temp-text">Temp1(&deg;C)</span>
+                      <span class="temp-text">T<sub>1</sub> (&deg;C)</span>
                       <span class="temp-val" id="temp1">10</span>
                     </div>
                     <div class="temperature-group">
-                      <span class="temp-text">Temp2(&deg;C)</span>
+                      <span class="temp-text">T<sub>2</sub> (&deg;C)</span>
                       <span class="temp-val" id="temp2">10</span>
                     </div>
                     <div class="temperature-group">
-                      <span class="temp-text">Temp3(&deg;C)</span>
+                      <span class="temp-text">T<sub>3</sub> (&deg;C)</span>
                       <span class="temp-val" id="temp3">10</span>
                     </div>
                     <div class="temperature-group">
-                      <span class="temp-text">Temp4(&deg;C)</span>
+                      <span class="temp-text">T<sub>4</sub> (&deg;C)</span>
                       <span class="temp-val" id="temp4">10</span>
                     </div>
                     <div class="temperature-group">
-                      <span class="temp-text">Temp5(&deg;C)</span>
+                      <span class="temp-text">T<sub>5</sub> (&deg;C)</span>
                       <span class="temp-val" id="temp5">10</span>
+                    </div>
+                    <div class="temperature-group">
+                      <span class="temp-text">T<sub>6</sub> (&deg;C)</span>
+                      <span class="temp-val" id="temp6">10</span>
+                    </div>
+                    <div class="temperature-group">
+                      <span class="temp-text">T<sub>7</sub> (&deg;C)</span>
+                      <span class="temp-val" id="temp7">10</span>
+                    </div>
+                    <div class="temperature-group">
+                      <span class="temp-text">T<sub>8</sub> (&deg;C)</span>
+                      <span class="temp-val" id="temp8">10</span>
                     </div>
                   </div>
                 </div>
@@ -189,30 +200,80 @@
                 <div class="task-screen practice hide">
                   
                   <p id="info">Temperature Gradient</p>
-                  <p class="extra-info hide">Move the cursor to the graph to see the points</p>
                   <div class="graph-div">
                     <div class="graph" id="graph"></div>
                   </div>
                   <div class="questions">
                     <p class="warning"> Please enter a value rounded upto two decimal points</p>
                     <div class="question-one">
-                      <div class="question-title">Temperature Gradient</div>
-                      <p class="question-label">dT/dx = </p>
+                      <div class="question-title">Volumetric coefficient</div>
+                      <div class="question-formula">&beta; = <span style="font-size: large;" class="frac"><sup>1</sup><span>&frasl;</span><sub>Tm</sub>
+                      </span> </div>
+                      <p class="question-label"><label for="bvalue"><i> &beta; = </i></label> </p>
                       <input class="question-input question-input1" type="number"/>
-                      <p class="question-unit question-unit1"><sup>&deg;</sup>C/m</p>
+                      <p class="question-unit question-unit1"> 1/K</p>
                       <p class="correct-answer correct-answer1 hide"></p>
                       <button class="btn btn-check btn-check1">Check</button>
                     </div>
+
                     <div class="question-two">
-                      <div class="question-title">Thermal conductivity of a rod</div>
-                      <div class="question-formula">K = <span style="font-size: large;" class="frac"><sup>-mf.Cp.&#916;T</sup><span>&frasl;</span><sub>A.dT/dx</sub></span> W/m.K</div>
-                      <p class="question-label">K =  </p>
+                      <div class="question-title">Grashof number</div>
+                      <div class="question-formula"><label for="gvalue"><i> Gr = </i></label>
+                        <span style="font-size: large;" class="frac"><sup>L<sup>3</sup>.&beta;.g.(Ts - Ta)
+                        </sup><span>&frasl;</span>
+                        <sub> &gamma; <sup>2</sup> </sub></span>  <p>&gamma; = 1.846*10 <sup>-5</sup></p></div>
+                      <p class="question-label">Gr = </p>
                       <input class="question-input question-input2" type="number"/>
-                      <p class="question-unit question-unit2">W/m.K</p>
+                      <p class="question-unit question-unit2"></p>
                       <p class="correct-answer correct-answer2 hide"></p>
                       <button class="btn btn-check btn-check2">Check</button>
                     </div>
-                  </div>
+
+                    <div class="question-three">
+                      <div class="question-title">Nusselt Number,</div>
+                      <div class="question-formula"><label for="gvalue"><i></i></label><span style="font-size: large;" class="frac">
+                        <p>Nu = 0.53(Ra) <sup>1/4</sup> if Ra &lt; 10 <sup>5</sup>
+                          <br>0.56(Ra) <sup>1/4</sup> if 10 <sup>5</sup> &lt; Ra &lt; 10 <sup>8</sup>
+                          <br>0.13(Ra) <sup>1/3</sup> if 10 <sup>8</sup> &lt; Ra &lt; 10 <sup>12</sup>
+                        </p>
+                        <p> Ra = Gr.Pr .... Pr = 0.697</p></span> </div>
+                      <p class="question-label">Nu = </p>
+                      <input class="question-input question-input3" type="number"/>
+                      <p class="question-unit question-unit3"></p>
+                      <p class="correct-answer correct-answer3 hide"></p>
+                      <button class="btn btn-check btn-check3">Check</button>
+                    </div>
+
+                    
+                    <div class="question-four">
+                      <div class="question-title">heat transfer coefficient,</div>
+                      <div class="question-formula"><label for="gvalue"><i></i></label><span style="font-size: large;" class="frac">
+                        <p> h =
+                          <span style="font-size: large;" class="frac"><sup>Nu.k </sup><span>&frasl;</span>
+                            <sub> L </sub></span>
+                        </p>
+                        <p>k = 0.02861</p></span> </div>
+                      <p class="question-label">h = </p>
+                      <input class="question-input question-input4" type="number"/>
+                      <p class="question-unit question-unit4">W/m<sup>2</sup> K</p>
+                      <p class="correct-answer correct-answer4 hide"></p>
+                      <button class="btn btn-check btn-check4">Check</button>
+                    </div>
+
+                    
+                    <div class="question-five">
+                      <div class="question-title">Heat transfer rate</div>
+                      <div class="question-formula"><label for="gvalue"><i></i></label><span style="font-size: large;" class="frac">
+                        <p>Qc = h.A.(Ts - Ta)
+                        </p>
+                        <p>A = &pi;.Ds.L</p></span> </div>
+                      <p class="question-label">Qc = </p>
+                      <input class="question-input question-input5" type="number"/>
+                      <p class="question-unit question-unit5">W</p>
+                      <p class="correct-answer correct-answer5 hide"></p>
+                      <button class="btn btn-check btn-check5">Check</button>
+                    </div>
+                 </div>
                  
                 </div>
               </div>

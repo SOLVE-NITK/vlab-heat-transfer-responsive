@@ -158,6 +158,7 @@ function simperiod() {
         ".comment"
       ).innerHTML = `The steady state is achieved
 `;
+      btnReset.removeAttribute("disabled");
     }
     // printcomment(
     //   "Wait for " + (5 - Math.round(time1)) + " seconds for steady state",
@@ -333,6 +334,7 @@ function startsim() {
 function initiateProcess() {
   if (currentVoltage === 0) return;
   btnStart.setAttribute("disabled", true);
+  btnReset.setAttribute("disabled", true);
   voltageButtons.forEach((voltage) => voltage.setAttribute("disabled", true));
   simstate();
 }
@@ -410,6 +412,7 @@ function validateAnswer2() {
 }
 function resetAll() {
   btnStart.setAttribute("disabled", true);
+  btnReset.setAttribute("disabled", true);
   voltageButtons.forEach((voltage) => {
     voltage.removeAttribute("disabled");
     voltage.checked = false;

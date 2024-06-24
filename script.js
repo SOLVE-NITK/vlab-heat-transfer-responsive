@@ -32,30 +32,13 @@ const experiments = [
   {
     title: "Heat Exchangers",
     path: "exp-heat-exchangers-nitk",
-    number: 6,
+    number: 7,
   },
-  // {
-  //   title:
-  //     "Forging hammer as a Two Degree of Freedom System - Impulse excitation",
-  //   path: "exp-forging-hammer-impulse-excitation-nitk",
-  //   number: 7,
-  // },
-  // {
-  //   title:
-  //     "Automotive vehicle as a Two Degree of Freedom System - Static and Dynamics coupling",
-  //   path: "exp-static-dynamics-coupling-nitk",
-  //   number: 8,
-  // },
-  // {
-  //   title: "Torsional System of Two Degree of Freedom",
-  //   path: "exp-torsional-system-nitk",
-  //   number: 9,
-  // },
-  // {
-  //   title: "Compound Pendulum",
-  //   path: "exp-compound-pendulum-nitk",
-  //   number: 10,
-  // },
+  {
+    title: "Heat transfer by Natural Convection",
+    path: "exp-natural-convection-nitk",
+    number: 8,
+  },
 ];
 const row = document.querySelector(".row");
 const search = document.querySelector(".search");
