@@ -17,7 +17,9 @@ const btnCheck2 = document.querySelector(".btn-check2");
 btnStart.addEventListener("click", initiateProcess);
 btnReset.addEventListener("click", resetAll);
 voltageButtons.forEach((voltage) =>
-  voltage.addEventListener("click", () => setVoltage(voltage))
+  voltage.addEventListener("click", () => setVoltage(voltage)
+  
+)
 );
 
 let steadyState = 0;
@@ -182,8 +184,10 @@ function simperiod() {
     steadyState = 5 - Math.round(time1);
     if (steadyState > 0) {
       document.querySelector(".comment").innerHTML = `Wait for ${steadyState} seconds for steady state`;
+      btnReset.setAttribute("disabled", true);
     } else {
       document.querySelector(".comment").innerHTML = "Steady state achieved";
+      btnReset.removeAttribute("disabled");
     }
     if (steadyState === 0) {
       temp2 = 0;
@@ -607,6 +611,7 @@ function resetAll() {
   document.querySelector(".correct-answer2").innerHTML = "";
   document.querySelector(".question-unit2").innerHTML = `W/m.K`;
   document.querySelector(".question-input2").value = "";
+  document.getElementById("formula").style.visibility="hidden";
 
    // Clear the canvas
    ctx.clearRect(0, 0, canvas.width, canvas.height);

@@ -81,14 +81,6 @@ function displayDiv(ele) {
 }
 //Change in Variables with respect to time
 function varinit() {
-  
-  // varchange();
-  //Variable r1 slider and number input types
-  // $("#vslider").slider("value", v);
-  // $("#vspinner").spinner("value", v);
-
-  // //$('#vfslider').slider("value", vf);
-  // $("#vfspinner").spinner("value", vf);
   console.log(currentVoltage, vf);
   if(time2 > 0){ t1[0] += off[0];};
   if(time2 > 0){ t1[1] += off[1];};
@@ -129,8 +121,7 @@ function simperiod() {
     temp1 = 0;
     temp2 = 1;
     watertemp();
-    //printcomment("Click forward button for calculations", 1);
-    //printcomment("Click restart button for doing experienment again", 2);
+   
 
     ctx.clearRect(620, 485, 100, 50);
     // t1[6] = t1[6].toFixed(1);
@@ -142,17 +133,15 @@ function simperiod() {
     document.querySelector(
       ".comment"
     ).innerHTML = `Wait for  ${steadyState} seconds for steady state`;
+    btnReset.setAttribute("disabled", true);
     if (steadyState === 0) {
       temp2 = 0;
       document.querySelector(
         ".comment"
       ).innerHTML = `The steady state is achieved
 `;
+btnReset.removeAttribute("disabled");
     }
-    // printcomment(
-    //   "Wait for " + (5 - Math.round(time1)) + " seconds for steady state",
-    //   2
-    // );
   }
 }
 //draw gradient w.r.t. time in thermometer water flow and heater
@@ -214,7 +203,7 @@ function drawModel() {
 
   var background = new Image();
   background.src = "./images//modelnew.png";
-  document.getElementsByClassName("comment1")[0].innerHTML="All temperatures should be in kelvin"
+  document.getElementsByClassName("comment1")[0].innerHTML="All temperature are in °C"
   // printcomment("All temperatures should be in kelvin", 0)
   console.log("tem")
 
@@ -309,7 +298,7 @@ function validation() {
   ];
   document.querySelector(".graph-div").classList.remove("hide");
   document.querySelector(".questions").classList.remove("hide");
-  drawgraph("graph", datapoints, "Length in meter", "Temperature in degree C");
+  // drawgraph("graph", datapoints, "Length in meter", "Temperature in degree C");
   if (currentVoltage == 5) {
     e = 0.808;
     tempk = k[0];
@@ -357,9 +346,6 @@ function resetAll() {
   th = [45, 45, 45, 45, 45];
   currentVoltage = 0;
   vf = 0;
-  // document.querySelector(".correct-answer1").innerHTML = "";
-  // document.querySelector(".question-unit1").innerHTML = `<sup>&deg;</sup>C/m`;
-  // document.querySelector(".question-input1").value = "";
   document.querySelector(".correct-answer2").innerHTML = "";
   document.querySelector(".question-unit2").innerHTML = ``;
   document.querySelector(".question-input2").value = "";

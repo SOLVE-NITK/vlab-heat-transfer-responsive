@@ -39,6 +39,11 @@ const experiments = [
     path: "exp-natural-convection-nitk",
     number: 8,
   },
+  {
+    title: "Heat Transfer Coefficient in Forced Convection",
+    path: "exp-forced-convection-nitk",
+    number: 9,
+  },
 ];
 const row = document.querySelector(".row");
 const search = document.querySelector(".search");

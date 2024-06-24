@@ -51,7 +51,7 @@
             ><img src="images/logo_nitk.png" alt="Logo" class="logo"
           /></a>
         </div>
-        <h1>Composite Slab Apparatus</h1>
+        <h1>Heat transfer by forced convection</h1>
       </div>
     </div>
     <div class="container">
@@ -96,16 +96,18 @@
               <div class="task-screen objective">
                 <h3 class="objective__title">Objective</h3>
                 <p class="objective__main">
-                  To find out total thermal resistance and total thermal conductivity of composite slab.
+                  To determine the convective heat transfer coefficient and the rate of heat transfer by forced convection 
+                  for flow of air inside a horizontal pipe.
                 </p>
               </div>
               <div class="task-screen description hide">
                 <h3 class="description__title">Description</h3>
                 <div class="description-conatiner">
-                  <img src="./images/model.png" alt="apparatus" class="model" />
+                  <img src="./images/modelnew.png" alt="apparatus" class="model" />
                   <div class="model-detail">
-                    <p>Effective diameter d = 300 mm</p>
-                    <p>Thickness t = 52 mm</p>
+                    <p>D<sub>p</sub> -  40mm</p><br>
+                    <p>D<sub>o</sub> -  20mm</p>
+                    <p id="specimen" style="width: 100%;">specimen dimension - 23x300 mm</p>
                     <!-- <p>C<sub>p</sub> = 4.18kJ/kg-K</p>
                     <p>Length of shaded area = 300mm</p> -->
                   </div>
@@ -126,7 +128,17 @@
                       value="10"
                       class="voltage"
                     />
-                    <label for="v10" class="voltage_label">20V</label>
+                    <label for="v10" class="voltage_label">10V</label>
+                  </div>
+                  <div class="input-group" style="visibility: hidden;">
+                    <input
+                      type="radio"
+                      name="voltage"
+                      id="v30"
+                      value="30"
+                      class="voltage"
+                    />
+                    <label for="v30"  class="voltage_label" style="visibility: hidden;">60V</label>
                   </div>
                   <div class="input-group">
                     <input
@@ -136,18 +148,9 @@
                       value="20"
                       class="voltage"
                     />
-                    <label for="v20" class="voltage_label">40V</label>
+                    <label for="v20" class="voltage_label">20V</label>
                   </div>
-                  <div class="input-group">
-                    <input
-                      type="radio"
-                      name="voltage"
-                      id="v30"
-                      value="30"
-                      class="voltage"
-                    />
-                    <label for="v30"  class="voltage_label">60V</label>
-                  </div>
+                  
                   <div class="temperature-set">
                     <div class="temperature-group">
                       <span class="temp-text">Q(w)</span>
@@ -196,37 +199,115 @@
                   
                   <p id="info">Temperature Gradient</p>
                  
-                  <div class="graph-div">
+                  <div class="graph-div" style="display: none;">
                     <div class="graph" id="graph"></div>
                   </div>
                   <div id="formula" style="visibility: hidden;">
-                    TA = T1 + T2/2 &deg;C <br>
-                    TB = T3 + T4/2 &deg;C <br>
-                    TC = T5 + T6/2 &deg;C 
+                    Tm = Ts + Ta/2 K <br>
+                    Ts = T2+T3+T4+T5+T6/5 K <br>
+                    Ta = 303 K <br>
+                    <p>Properties of air at Tm</p>
                   </div>
 
 
                   <div class="questions">
                     <p class="warning"> Please enter a value rounded upto two decimal points</p>
                     <div class="question-one">
-                      <div class="question-title">Thermal Resistance of a slab</div>
-                      <div class="question-formula">R = <span style="font-size: large;" class="frac"><sup>TA - TC</sup><span>&frasl;</span><sub>Q</sub></span> °C/W
+                      <div class="question-title">Mass Density of air</div>
+                      <div class="question-formula">&rho;<sub>a</sub> = <span style="font-size: large;" class="frac"><sup>P</sup><span>&frasl;</span><sub>R.T<sub>R</sub></span> kg/m<sup>3</sup>
+                        <p>P<sub>atm - 101325 N/m<sub>2</sub></p>
+                        <p>T<sub>atm - 303K</sub></p>
+                        <p>R - 287 J/kg</p>
+                        <p style="color: green;">upto four decimal places</p>
                       </div>
-                      <p class="question-label">R = </p>
+                      <p class="question-label">&rho;<sub>a</sub> = </p>
                       <input class="question-input question-input1" type="number"/>
-                      <p class="question-unit question-unit1"><sup>&deg;</sup>C/W</p>
+                      <p class="question-unit question-unit1"><sup></sup>kg/m<sup>3</sup></p>
                       <p class="correct-answer correct-answer1 hide"></p>
                       <button class="btn btn-check btn-check1">Check</button>
                     </div>
                     <div class="question-two">
-                      <div class="question-title">Thermal conductivity</div>
-                      <div class="question-formula">K = <span style="font-size: large;" class="frac"><sup>Q.t</sup><span>&frasl;</span><sub>A.(TA-TC)</sub></span> W/m.k</div>
-                      <p class="question-label">K =  </p>
+                      <div class="question-title">V<sub>air</sub> at orifice,</div>
+                      <div class="question-formula">V<sub>o</sub> = <span style="font-size: large;" class="frac"><sup>Cd.(2.g.ha) <sup>1/2</sup> </sup><span>&frasl;</span><sub>(1-(d<sub>o</sub>/ d<sub>p</sub>  )<sup>4</sup>)<sup>1/2</sup> </span> m/s
+                      <p>cd - 0.6</p>
+                      </div>
+
+                      <p class="question-label">V<sub>o</sub> =  </p>
                       <input class="question-input question-input2" type="number"/>
-                      <p class="question-unit question-unit2">W/m.K</p>
+                      <p class="question-unit question-unit2">m/s</p>
                       <p class="correct-answer correct-answer2 hide"></p>
                       <button class="btn btn-check btn-check2">Check</button>
                     </div>
+
+                    <div class="question-three">
+                      <div class="question-title">Pressure drop</div>
+                      <div class="question-formula">h<sub>a</sub> = <span style="font-size: large;" class="frac"><sup>&rho;m.hm</sup><span>&frasl;</span><sub>&rho;<sub>a</sub></sub></span> m
+                      <p>&rho;m(mercury) -13600 kg/m<sub>3</sub></p>
+                      <p>manometer reading hm -25mm</p>
+                      </div>
+                      <p class="question-label">h<sub>a</sub> =  </p>
+                      <input class="question-input question-input3" type="number"/>
+                      <p class="question-unit question-unit3">m</p>
+                      <p class="correct-answer correct-answer3 hide"></p>
+                      <button class="btn btn-check btn-check3">Check</button>
+                    </div>
+                    <div class="question-four">
+                      <div class="question-title">V<sub>air</sub> in the tube</div>
+                      <div class="question-formula">V<sub>a</sub> = <span style="font-size: large;" class="frac"><sup>V<sub>o</sub>d<sub>o</sub><sup>2</sup> </sup><span>&frasl;</span><sub>ds<sup>2</sup></sub></span> m/s</div>
+                      <p class="question-label">V<sub>a</sub>=  </p>
+                      <input class="question-input question-input4" type="number"/>
+                      <p class="question-unit question-unit4">m/s</p>
+                      <p class="correct-answer correct-answer4 hide"></p>
+                      <button class="btn btn-check btn-check4">Check</button>
+                    </div>
+                    <div class="question-five">
+                      <div class="question-title">Reynolds number</div>
+                      <div class="question-formula">Re = <span style="font-size: large;" class="frac"><sup>V<sub>a</sub>.d<sub>s</sub></sup><span>&frasl;</span><sub>&gamma;</sub></span> 
+                      <p>&gamma; - 1.696*10<sup>-5</sup></p>
+                      </div>
+                      <p class="question-label">Re =  </p>
+                      <input class="question-input question-input5" type="number"/>
+                      <p class="question-unit question-unit5"></p>
+                      <p class="correct-answer correct-answer5 hide"></p>
+                      <button class="btn btn-check btn-check5">Check</button>
+                    </div>
+                    <div class="question-six">
+                      <div class="question-title">Nusselt Number</div>
+                      <div class="question-formula">Nu = <span style="font-size: large;" class="frac"><sup>0.023(Re)<sup>0.8</sup>(Pr)<sup>n</sup>  </sup><span>&frasl;</span><sub></sub></span> W/m.k
+                      <p>n = 0.4 for heating of fluid</p>
+                      <p>n = 0.3 for cooling of fluid</p>
+                      <p>Pr=0.699</p>
+                      </div>
+                      <p class="question-label">Nu =  </p>
+                      <input class="question-input question-input6" type="number"/>
+                      <p class="question-unit question-unit6"></p>
+                      <p class="correct-answer correct-answer6 hide"></p>
+                      <button class="btn btn-check btn-check6">Check</button>
+                    </div>
+                    <div class="question-seven">
+                      <div class="question-title">heat transfer coefficient</div>
+                      <div class="question-formula">h = <span style="font-size: large;" class="frac"><sup>Nu.k</sup><span>&frasl;</span><sub>Ds</sub></span> W/m<sup>2</sup>k
+                      <p>k = 0.02756</p>
+                      </div>
+                      <p class="question-label">h =  </p>
+                      <input class="question-input question-input7" type="number"/>
+                      <p class="question-unit question-unit7">W/m<sup>2</sup>K</p>
+                      <p class="correct-answer correct-answer7 hide"></p>
+                      <button class="btn btn-check btn-check7">Check</button>
+                    </div>
+                    <div class="question-eight">
+                      <div class="question-title">Heat transfer rate</div>
+                      <div class="question-formula">Qc = <span style="font-size: large;" class="frac"><sup>h.A.</sup><span>&frasl;</span><sub>(Ts-Ta)</sub></span> W
+                        <p>A = &pi;.Ds.L</p>
+                       
+                      </div>
+                      <p class="question-label">Qc =  </p>
+                      <input class="question-input question-input8" type="number"/>
+                      <p class="question-unit question-unit8">W</p>
+                      <p class="correct-answer correct-answer8 hide"></p>
+                      <button class="btn btn-check btn-check8">Check</button>
+                    </div>
+                    
                   </div>
                  
                 </div>
